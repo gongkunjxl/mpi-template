@@ -6,7 +6,7 @@
     "creationTimestamp": null,
     "annotations": {
       "description": "Hadoop Master",
-      "iconClass": "icon-mysql-database",
+      "iconClass": "icon-hadoop",
       "tags": "hadoop"
     }
   },
@@ -179,7 +179,7 @@
             "containers": [
               {
                 "name": "hadoop-master",
-                "image": "nic-hadoop-master",
+                "image": "172.30.188.127:5000/openshift/nic-hadoop-master:0.0.1",
                 "command": ["bash","-c","/root/start-ssh-serf.sh && sleep 365d"],
                 "ports": [
                   {
@@ -254,7 +254,7 @@
                 "capabilities": {},
                 "securityContext": {
                   "capabilities": {},
-                  "privileged": false
+                  "privileged": true
                 }
               }
             ],

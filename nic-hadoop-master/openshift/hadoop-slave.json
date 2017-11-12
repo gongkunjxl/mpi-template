@@ -6,7 +6,7 @@
     "creationTimestamp": null,
     "annotations": {
       "description": "Hadoop Slave",
-      "iconClass": "icon-mysql-database",
+      "iconClass": "icon-hadoop",
       "tags": "hadoop"
     }
   },
@@ -173,7 +173,7 @@
             "containers": [
               {
                 "name": "hadoop-slave",
-                "image": "kiwenlau/hadoop-slave:0.1.0",
+                "image": "172.30.188.127:5000/openshift/hadoop-slave:0.0.1",
                 "command": ["bash","-c","export JOIN_IP=$HADOOP_MASTER_SERVICE_HOST;/root/start-ssh-serf.sh ; ssh -o StrictHostKeyChecking=no $JOIN_IP \"/root/config.sh;/root/restart.sh\"; sleep 365d"],
                 "ports": [
                   {
@@ -245,7 +245,7 @@
                 "capabilities": {},
                 "securityContext": {
                   "capabilities": {},
-                  "privileged": false
+                  "privileged": true
                 }
               }
             ],
