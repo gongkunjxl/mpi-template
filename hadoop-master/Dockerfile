@@ -20,10 +20,10 @@ mv /tmp/start-hadoop.sh ~/start-hadoop.sh && \
 mv /tmp/run-wordcount.sh ~/run-wordcount.sh && \ 
 mv /tmp/start-ssh-serf.sh ~/start-ssh-serf.sh
 
-RUN chmod +x ~/start-hadoop.sh && \
-chmod +x ~/run-wordcount.sh && \
-chmod +x ~/start-ssh-serf.sh && \
-chmod 1777 tmp
+RUN chmod -R 777 ~/start-hadoop.sh && \
+chmod -R 777 ~/run-wordcount.sh && \
+chmod -R 777 ~/start-ssh-serf.sh && \
+chmod -R 777 tmp
 
 # format namenode
 RUN /usr/local/hadoop/bin/hdfs namenode -format
