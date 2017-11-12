@@ -1,6 +1,6 @@
 FROM kiwenlau/hadoop-base:0.1.0
 
-MAINTAINER KiwenLau <kiwenlau@gmail.com>
+MAINTAINER gongkun <gongkujxl@163.com>
 
 # move all confugration files into container
 ADD files/* /tmp/
@@ -24,6 +24,21 @@ RUN chmod -R 777 ~/start-hadoop.sh && \
 chmod -R 777 ~/run-wordcount.sh && \
 chmod -R 777 ~/start-ssh-serf.sh && \
 chmod -R 777 tmp
+
+
+# add pagerank and wordcount example
+COPY pagerank/* /user/
+COPY wordcount/* /user/
+
+RUN mkdir ~/pagerank && \
+    mkdir ~/wordcount
+
+RUN mv /user/PageRank.java ~/pagerank/PageRank.java && \
+    mv /user/startRank.sh ~/pagerank/start.sh && \
+    mv /user/pagerank.txt ~/pagerank/pagerank.txt && \
+    mv /user/WordCount.java ~/wordcount/WordCount.java &&\
+    mv /user/startWord.sh ~/wordcount/start.sh && \
+    mv /user/wordcount.txt ~/wordcount/wordcount.txt
 
 # format namenode
 RUN /usr/local/hadoop/bin/hdfs namenode -format
