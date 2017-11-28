@@ -283,6 +283,6 @@
     }
   ],
   "labels": {
-    "template": "mpi-template"
+    "template": "mpi-cluster"
   }
 }
